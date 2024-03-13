@@ -30,8 +30,8 @@ parser.add_argument('--noopencsv',action="store_true", help="prevents opening th
 args = parser.parse_args()
 
 
-## TOKEN permission needs - #TODO
-XIQ_token = 'eyJraWQiOiIxNzhlZDM3NTVjY2U0YWEzODg5MTY5N2YyNjFlMGUzZCIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJ0aXNtaXRoK2FwaUBleHRyZW1lbmV0d29ya3MuY29tIiwic2NvcGVzIjpbImxvZ291dCIsImF1dGgiLCJhdXRoOnIiLCJ0b2tlbjpuZXciLCJwZXJtOmNoZWNrIiwibHJvIiwibHJvOnIiLCJhY2NvdW50IiwiYWNjb3VudDpzd2l0Y2giLCJhY2NvdW50OnIiLCJ2aXE6YmFja3VwIiwidXNlciIsInVzZXItbWU6ciIsInVzZXI6ciIsImhpcSIsImhpcTpyIiwib3JnIiwib3JnOm5ldyIsIm9yZzpkZWwiLCJvcmc6cmVuYW1lIiwiaGlxLmN0eCIsImhpcS5jdHg6ciIsImhpcS5jdHg6dyIsImRldmljZSIsImRldmljZTpyIiwiZGV2aWNlOmxpc3QiLCJkZXZpY2U6dmlldyIsImRldmljZTpuZXciLCJkZXZpY2U6ZGVsIiwiZGV2aWNlOmNsaSIsImRldmljZTpkZXBsb3kiLCJkZXZpY2U6bWFuYWdlIiwiZGV2aWNlOnVubWFuYWdlIiwiZGV2aWNlOnJlYm9vdCIsImRldmljZTpyZXNldCIsImRldmljZTp0aHJlYWQtY29tbWlzc2lvbmVyIiwiY2xpZW50IiwiY2xpZW50OnIiLCJsb2NhdGlvbnMiLCJsb2NhdGlvbnM6ciIsIm5ldHdvcmstcG9saWN5IiwicG9saWN5OnNzaWQiLCJuZXR3b3JrLXBvbGljeTpyIiwic3NpZCIsInNzaWQ6ciIsInBjZzprZXkiLCJwY2c6a2V5OnIiLCJzdWJzY3JpcHRpb25zLXdlYmhvb2siLCJzdWJzY3JpcHRpb25zLXdlYmhvb2s6ciIsImNjZyIsImNjZzpyIiwibG9nIiwibG9nOnIiLCJjd3AiLCJjd3A6ciIsInNtcy10bXBsIiwic21zLXRtcGw6ciIsImNsYXNzLXJ1bGUiLCJjbGFzcy1ydWxlOnIiLCJ1c2VyLXByb2ZpbGUiLCJ1c2VyLXByb2ZpbGU6ciIsInJhZGl1cy1wcm94eSIsInJhZGl1cy1wcm94eTpyIiwicmFkaXVzLXNlcnZlciIsInJhZGl1cy1zZXJ2ZXI6ciIsInVzZXJncm91cCIsInVzZXJncm91cDpyIiwiZGVwbG95bWVudCIsImRlcGxveW1lbnQ6ciIsImFkLXNlcnZlciIsImFkLXNlcnZlcjpyIiwiYWxlcnQiLCJhbGVydDpyIiwiYWxlcnQtcG9saWNpZXMiLCJhbGVydC1wb2xpY2llczpyIiwiYWxlcnQtc3Vic2NyaXB0aW9ucyIsImFsZXJ0LXN1YnNjcmlwdGlvbnM6ciIsImFwcCIsImFwcGxpY2F0aW9uOnIiLCJsMy1hZGRyZXNzLXByb2ZpbGUiLCJsMy1hZGRyZXNzLXByb2ZpbGU6ciIsInZsYW4tcHJvZmlsZSIsInZsYW4tcHJvZmlsZTpyIiwiZW5kdXNlciIsImVuZHVzZXI6ciIsInJhZGl1cy1jbGllbnQtb2JqZWN0IiwicmFkaXVzLWNsaWVudC1vYmplY3Q6ciIsImxkYXAtc2VydmVyIiwibGRhcC1zZXJ2ZXI6ciIsImVtYWlsLXRlbXBsYXRlIiwiZW1haWwtdGVtcGxhdGU6ciIsImNlcnRpZmljYXRlIiwiY2VydGlmaWNhdGU6ciIsInJhZGlvLXByb2ZpbGUiLCJyYWRpby1wcm9maWxlOnIiLCJpb3QtcHJvZmlsZSIsImlvdC1wcm9maWxlOnIiLCJjb3BpbG90LWNvbm5lY3Rpdml0eS13aXJlZDpyIiwiY29waWxvdC1jb25uZWN0aXZpdHktd2lyZWxlc3M6ciIsImNvcGlsb3QtYW5vbWFsaWVzOnIiLCJsaWNlbnNlcyIsImxpY2Vuc2VzOnIiLCJjb3BpbG90LWFzc3VyYW5jZS1zY2FuczpyIiwicGFja2V0LWNhcHR1cmUiLCJwYWNrZXQtY2FwdHVyZTpyIiwiY291bnRyeSIsImNvdW50cnk6ciJdLCJ1c2VyX2lkIjoyMTc5MjMyMSwicm9sZSI6IkFkbWluaXN0cmF0b3IiLCJjdXN0b21lcl9pZCI6MjE3OTE5NzEsImN1c3RvbWVyX21vZGUiOjAsImhpcV9lbmFibGVkIjpmYWxzZSwib3duZXJfaWQiOjE3OTE2MSwib3JnX2lkIjowLCJkYXRhX2NlbnRlciI6IklBX0dDUCIsInNoYXJkIjoiVVMiLCJqdGkiOiJjMzkxM2RlZGJmNmQ0ZGI4OWQxMjYzZjZmMWIyNmY1ZSIsImlzcyI6Imh0dHBzOi8vdXMwLmV4dHJlbWVjbG91ZGlxLmNvbSIsImlhdCI6MTcwNDM3ODQ2MywiZXhwIjoxNzIwMTAzMjUwfQ.D4-7tyOGrheD5BU8fVowC96AczpAMZc8BXGPyCTIYzFlEUdp6U2M1-MLCapgdZ-YXCWudpAebSF_Q8-Hxtr6l79o6FtCsE4TfCSBePkl5r7U_L5mY5-TyZ3zjxefIpQdM-Jpw1lEeGp1LB977zLZDPclIsqBrdugi2e70UGnxxvozc_IprKp_rPVG8IHbLLiVRBnnRS1IzmaqJPV4WYmDRxe_MoTycfNnmvHS-vKZtPAfP1iU3o2FDvuGCOsbf41SJ6unJkdc-LL5khl06-iWSld2NYl7cLyZdBTd-rM56iT0ev71NPN91tzP-pWSTuNocMQ5dtpGI25G0ZsXEEWRw'
+## TOKEN permission needs - device:r, locations:r, account:r, account:switch, lro:r
+XIQ_token = ''
 
 def yesNoLoop(question):
     validResponse = False
@@ -57,7 +57,7 @@ def manuallyCollectDevices(x):
     print("How would you like to enter the devices?")
     validResponse = False
     while not validResponse:
-        print("1. Enter names of the devices seperated by commas.")
+        print("1. Enter names of the devices separated by commas.")
         print("2. Collect logs for all APs at a SITE.")
         print("3. Collect logs for all APs at a BUILDING.")
         print("4. Collect logs for all APs on a FLOOR of a building.")
@@ -178,8 +178,6 @@ def main():
         with open(args.filterFile, 'r') as f:
             log_checks = f.read().splitlines()
     else:
-    
-        #TODO selection of predefined messages to collect logs.
         collect_filters = True
         # user input single search
         log_checks = [input("Please enter string you would like to search the logs for: (NOTE: amount of spaces between words will be ignored) ")]
@@ -188,7 +186,7 @@ def main():
         while collect_filters:
             response = yesNoLoop("Would you like to search another?")
             if response == 'y':
-                log_checks.append(input("Add another: ")) #FIX - better wording
+                log_checks.append(input("Add another string to search: ")) 
             elif response == 'n':
                 collect_filters = False
 
